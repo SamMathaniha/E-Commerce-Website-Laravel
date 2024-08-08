@@ -7,5 +7,11 @@
 </head>
 <body>
     <h1>Admin DashBoard</h1>
+    <!-- Logout -->
+        <form method="POST" action="{{ route('logout') }}">
+           @csrf
+
+            <input type="submit" value ="logout">
+        </form>
 </body>
 </html>
