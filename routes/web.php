@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use GuzzleHttp\Middleware;
@@ -21,3 +22,5 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('admin/dashboard', [HomeController::class,'index'])->Middleware(['auth','admin']);
+
+Route::get('view_category', [AdminController::class,'view_category'])->Middleware(['auth','admin']);
