@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Flasher\Toastr\Prime\ToastrInterface;
 
 class AdminController extends Controller
 {
@@ -18,6 +19,9 @@ class AdminController extends Controller
         //$AssignedVariable->columnName = $requestVariable -> InputFieldsName 
         $category->category_name = $request-> category;
         $category-> save();
+
+        toastr()->success('Category Added Successfully...');
+
         return redirect()->back();
     }
 }
