@@ -20,7 +20,7 @@ class AdminController extends Controller
         $category->category_name = $request-> category;
         $category-> save();
 
-        toastr()->success('Category Added Successfully...');
+        toastr()->timeOut(5000)->closeButton()->success('Category Added Successfully...');
 
         return redirect()->back();
     }
