@@ -21,7 +21,9 @@
         <div class="page-header">
           <div class="container-fluid">
 
-           <form >
+           <form action="{{url('add_category')}}" method="POST">
+
+           @csrf
             <h2>Add Category</h2>
             <div>
                 <input type="text" name="category">

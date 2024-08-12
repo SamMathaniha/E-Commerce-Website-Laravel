@@ -24,3 +24,7 @@ require __DIR__.'/auth.php';
 Route::get('admin/dashboard', [HomeController::class,'index'])->Middleware(['auth','admin']);
 
 Route::get('view_category', [AdminController::class,'view_category'])->Middleware(['auth','admin']);
+
+
+            //route name    controllerName           Method Name
+Route::post('add_category', [AdminController::class,'add_category'])->Middleware(['auth','admin']);
