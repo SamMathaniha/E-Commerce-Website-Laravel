@@ -28,3 +28,5 @@ Route::get('view_category', [AdminController::class,'view_category'])->Middlewar
 
             //route name    controllerName           Method Name
 Route::post('add_category', [AdminController::class,'add_category'])->Middleware(['auth','admin']);
+
+Route::get('delete_category/{id}', [AdminController::class,'delete_category'])->Middleware(['auth','admin']);
