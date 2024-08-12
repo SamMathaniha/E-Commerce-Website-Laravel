@@ -2,6 +2,14 @@
 <html>
   <head> 
     @include('admin.css')
+
+    <style type="text/css">
+        input[type='text']
+        {
+            width: 400px;
+            height: 50px;
+        }
+    </style>
   </head>
   <body>
     @include('admin.header')
@@ -13,7 +21,15 @@
         <div class="page-header">
           <div class="container-fluid">
 
-           
+           <form >
+            <h2>Add Category</h2>
+            <div>
+                <input type="text" name="category">
+     
+                <input class="btn btn-primary" type="submit" value="Add Category">
+            </div>
+
+           </form>
 
        
       </div>
