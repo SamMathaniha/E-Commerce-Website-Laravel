@@ -33,6 +33,18 @@
 
            </form>
 
+            <br> <br>
+           <div>
+            <table>
+              <tr>
+                <th>Category Name</th>
+              </tr>
+              <tr>
+                <td>Sports</td>
+              </tr>
+            </table>
+           </div>
+
        
       </div>
     </div>
