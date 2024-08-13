@@ -51,6 +51,8 @@ class AdminController extends Controller
         $data = Category::find($id);
         $data->category_name = $request->category;
         $data->save();
+        //message
+        toastr()->timeOut(5000)->closeButton()->success('Category Updated Successfully!!!');
         return redirect('/view_category');
     }
 
