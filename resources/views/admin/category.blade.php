@@ -94,7 +94,7 @@
                             <th>ID</th>
                             <th>Category Name</th>
                             <th>Created At</th>
-                            <th>Delete</th>
+                             <th>Action</th>
                         </tr>
                         @foreach ($data as $data)
                         <tr>
@@ -102,7 +102,8 @@
                             <td>{{$data->category_name}}</td> 
                             <td>{{$data->created_at}}</td> 
                             <td >
-                              <a  href="{{url('delete_category', $data->id)}}" onclick="confirmation(event)"><button class="btndanger">Delete</button></a>
+                            <a  href="{{url('edit_category', $data->id)}}"><button class="btn btn-success">Edit</button></a>
+                              <a  href="{{url('delete_category', $data->id)}}" onclick="confirmation(event)"><button class="btn btn-danger">Delete</button></a>
                             </td> 
                         </tr>
                         @endforeach
