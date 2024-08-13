@@ -52,43 +52,47 @@
           <h1 class="h3 mb-4 text-white">Add Products</h1>
 
           <div class="card shadow mb-4">
-            <div class="card-body">
-              <form action="{{ url('add_product') }}" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="form-group">
-                  <label for="title">Product Title</label>
-                  <input type="text" class="form-control" id="title" name="title" placeholder="Enter product title" required>
-                </div> 
-                <div class="form-group">
-                  <label for="description">Description</label>
-                  <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter product description" required></textarea>
-                </div> 
-                <div class="form-group">
-                  <label for="price">Price</label>
-                  <input type="text" class="form-control" id="price" name="price" placeholder="Enter product price" required>
-                </div> 
-                <div class="form-group">
-                  <label for="quantity">Quantity</label>
-                  <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Enter product quantity" required>
-                </div>  
+            <div class="card-body">                                                <!-- this is for using a image to upload -->
+              <form action="{{ url('upload_product') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                        <label for="title">Product Title</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Enter product title" required>
+                        </div>
 
-                <div class="form-group">
-                  <label for="category">Product Category</label>
-                  <select class="form-control" id="category" name="category">
-                    <option value="">Select category</option>
-                        @foreach ($category as $category)
-                        <option>{{$category->category_name}} </option>
-                        @endforeach
-                  </select>
-                </div>
+                        <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter product description" required></textarea>
+                        </div> 
 
-                <div class="form-group">
-                  <label for="image">Product Image</label>
-                  <input type="file" class="form-control-file" id="image" name="image" required>
-                </div> 
-                <div class="form-group">
-                  <input type="submit" class="btn btn-primary" value="Add Product">
-                </div>
+                        <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control" id="price" name="price" placeholder="Enter product price" required>
+                        </div> 
+
+                        <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Enter product quantity" required>
+                        </div>  
+
+                        <div class="form-group">
+                        <label for="category">Product Category</label>
+                        <select class="form-control" id="category" name="category" required>
+                            <option value="">Select category</option>
+                                @foreach ($category as $category)
+                                <option value="{{$category->category_name}}" >{{$category->category_name}} </option>
+                                @endforeach
+                        </select>
+                        </div>
+
+                        <div class="form-group">
+                        <label for="image">Product Image</label>
+                        <input type="file" class="form-control-file" id="image" name="image" required>
+                        </div> 
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Add Product">
+                        </div>
               </form>
             </div>
           </div>
