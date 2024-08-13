@@ -71,15 +71,17 @@
                   <label for="quantity">Quantity</label>
                   <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Enter product quantity" required>
                 </div>  
+
                 <div class="form-group">
                   <label for="category">Product Category</label>
                   <select class="form-control" id="category" name="category">
                     <option value="">Select category</option>
-                    <!-- Add more options as needed -->
-                    <option value="category1">category 1</option>
-                    <option value="category2">category 2</option>
+                        @foreach ($category as $category)
+                        <option>{{$category->category_name}} </option>
+                        @endforeach
                   </select>
-                </div> 
+                </div>
+
                 <div class="form-group">
                   <label for="image">Product Image</label>
                   <input type="file" class="form-control-file" id="image" name="image" required>
