@@ -110,6 +110,16 @@ class AdminController extends Controller
     public function delete_product($id)
     {
         $data = Product::find($id);
+
+        //variable =  the path of the folder . Getting the ColoumName
+        $image_path = public_path('products/'. $data->image);
+
+        if(file_exists($image_path))
+        {
+            //delete the image by its filename 
+            unlink($image_path);
+        }
+
         $data->delete();
 
         //message
