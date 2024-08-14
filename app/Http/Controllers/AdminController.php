@@ -74,7 +74,7 @@ class AdminController extends Controller
         $data->description = $request-> description;
         $data->price = $request-> price;
         $data->category = $request-> category;
-        $data->quantity = $request-> description;
+        $data->quantity = $request-> quantity;
 
         //A variable = requestVariable assign to -> InputName
         $image = $request->image;
@@ -97,6 +97,14 @@ class AdminController extends Controller
         return redirect()->back();
        
         
+    }
+
+
+    public function view_product()
+    {
+        //Variable = Model:: [all() -> this takes all the data]
+        $data = Product::all();
+        return view('admin.view_product', compact('data'));
     }
 
 }
