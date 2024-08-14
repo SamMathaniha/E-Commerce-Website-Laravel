@@ -43,7 +43,7 @@
         .CategoryTable th, .CategoryTable td {
             padding: 12px;
             border: 1px solid #444444;
-            text-align: left;
+            text-align: center;
         }
         .CategoryTable th {
             background-color: #333333;
@@ -104,7 +104,7 @@
                         <tr>
                             <td>{{$datas->id}}</td>
                             <td>{{$datas->title}}</td> 
-                            <td>{{$datas->description}}</td> 
+                            <td>{!!Str::limit($datas->description,30)!!}</td> 
                             <td>{{$datas->price}}</td> 
                             <td>{{$datas->category}}</td> 
                             <td>{{$datas->quantity}}</td> 
