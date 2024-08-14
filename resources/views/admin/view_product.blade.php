@@ -67,6 +67,12 @@
             color: gold;
          }
 
+         .LinksPages {
+            margin-top: 20px;
+
+         }
+        
+
     </style>
   </head>
   <body>
@@ -103,7 +109,7 @@
                             <td>{{$datas->category}}</td> 
                             <td>{{$datas->quantity}}</td> 
                             <td>
-                                <img height="150" width="300" src="products/{{$datas->image}}">
+                                <img height="80" width="150" src="products/{{$datas->image}}">
                             </td>
                             <!-- <td >
                                <a  href="{{url('edit_category', $datas->id)}}"><button class="btn btn-success">Edit</button></a>
@@ -112,6 +118,11 @@
                         </tr>
                         @endforeach
                     </table>
+                               <div class="LinksPages">
+                               {{$data->onEachSide(1)->links()}}
+                               </div>
+                    
+
                 </div>
             </div>
         </div>

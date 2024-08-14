@@ -102,8 +102,8 @@ class AdminController extends Controller
 
     public function view_product()
     {
-        //Variable = Model:: [all() -> this takes all the data]
-        $data = Product::all();
+        //Variable = Model::pagination shows only the number of products [all() -> this takes all the data]
+        $data = Product::paginate(5);
         return view('admin.view_product', compact('data'));
     }
 
