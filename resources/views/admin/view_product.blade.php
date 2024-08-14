@@ -97,7 +97,7 @@
                              <th>Category</th>
                              <th>Quantity</th>
                              <th>Image</th>
-                            <!--  <th>Action</th> -->
+                             <th>Action</th>
                              
                         </tr>
                         @foreach ($data as $datas)
@@ -111,10 +111,10 @@
                             <td>
                                 <img height="80" width="150" src="products/{{$datas->image}}">
                             </td>
-                            <!-- <td >
-                               <a  href="{{url('edit_category', $datas->id)}}"><button class="btn btn-success">Edit</button></a>
-                              <a  href="{{url('delete_category', $datas->id)}}" onclick="confirmation(event)"><button class="btn btn-danger">Delete</button></a>
-                            </td>  -->
+                            <td >
+                              <!--  <a  href="{{url('edit_category', $datas->id)}}"><button class="btn btn-success">Edit</button></a> -->
+                              <a  href="{{url('delete_product', $datas->id)}}" onclick="confirmation(event)"><button class="btn btn-danger">Delete</button></a>
+                            </td> 
                         </tr>
                         @endforeach
                     </table>
