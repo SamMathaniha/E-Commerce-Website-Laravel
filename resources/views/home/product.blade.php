@@ -11,7 +11,7 @@
         
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="">
+            <a href="{{url('product_details',$products->id)}}">
               <div class="img-box">
                 <img src="products/{{$products->image}}" alt="">
               </div>
@@ -20,6 +20,12 @@
                 <h6>Price<span> Rs {{$products->price}}</span></h6>
               </div>  
             </a>
+
+             <!--  Below code is used to view details of the projects using a button -->
+           <!--  <div style="padding:2px; align:center">
+                <a href="{{url('product_details',$products->id)}}" class="btn btn-danger" style="padding:2px 5px; color:white;"> Details</a>
+              </div> -->
+
           </div>
         </div>
         @endforeach
