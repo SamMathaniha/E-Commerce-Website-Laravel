@@ -131,7 +131,7 @@
 
       </div>
       <div class="btn-box">
-        <a href="">
+        <a href="{{url('/')}}">
           View All Products
         </a>
       </div>
