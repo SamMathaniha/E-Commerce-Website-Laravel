@@ -45,7 +45,7 @@
               </div>  
             </a>
 
-            <a href="" class="cartBtn">
+            <a href="{{url('add_cart',$products->id)}}" class="cartBtn">
               <i class="fas fa-shopping-cart"> +</i>
             </a>
 
