@@ -169,4 +169,16 @@ class AdminController extends Controller
         toastr()->timeOut(5000)->closeButton()->success('Category Updated Successfully!!!');
         return redirect('/view_product');
     }
+
+
+    public function product_search(Request $request)
+    {
+        //Variable = RequestVariable -> inputNameInTheForm
+        $search = $request->search;
+
+        //The variable thats inside the view form form [$data as $datas] = Model::where(search) -> pagination (if u use pagination use it)
+        $data = Product::where('title','LIKE','%'.$search.'%') -> paginate(5);
+
+        return view ('admin.view_product',compact('data'));
+    }
 }

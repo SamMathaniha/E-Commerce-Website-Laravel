@@ -99,7 +99,7 @@
             
             <h2 class="CateforyFormHead">Products</h2>
 
-            <form class="searchForm">
+            <form class="searchForm" action="{{url('product_search')}}" method="get">
                 <input type="search" name="search">
                 <input type="submit" class="btn btn-success" value="Search">
             </form>
