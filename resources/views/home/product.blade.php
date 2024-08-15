@@ -1,9 +1,33 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+  .cartBtn {
+    font-size: 18px; 
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .box {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+  }
+</style>
+
 <section class="shop_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2>
-          Latest Products
-        </h2>
+        <h2>Latest Products</h2>
       </div>
       <div class="row">
 
@@ -21,10 +45,9 @@
               </div>  
             </a>
 
-             <!--  Below code is used to view details of the projects using a button -->
-           <!--  <div style="padding:2px; align:center">
-                <a href="{{url('product_details',$products->id)}}" class="btn btn-danger" style="padding:2px 5px; color:white;"> Details</a>
-              </div> -->
+            <a href="" class="cartBtn">
+              <i class="fas fa-shopping-cart"> +</i>
+            </a>
 
           </div>
         </div>
@@ -32,9 +55,7 @@
 
       </div>
       <div class="btn-box">
-        <a href="">
-          View All Products
-        </a>
+        <a href="">View All Products</a>
       </div>
     </div>
   </section>
