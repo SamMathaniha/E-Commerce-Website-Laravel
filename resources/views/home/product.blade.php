@@ -55,7 +55,7 @@
 
       </div>
       <div class="btn-box">
-        <a href="">View All Products</a>
+        <a href="{{url('/dashboard')}}">View All Products</a>
       </div>
     </div>
   </section>
