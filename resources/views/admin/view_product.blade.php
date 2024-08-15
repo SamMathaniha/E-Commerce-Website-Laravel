@@ -10,6 +10,7 @@
         }
         .CateforyFormHead {
             color: #ffffff;
+            text-align: center;
         }
         input[type='text'] {
             width: 400px;
@@ -71,6 +72,16 @@
             margin-top: 20px;
 
          }
+
+         input[type='search']
+         {
+            width: 300px;
+            height: 40px;
+         }
+
+         .searchForm{
+            margin-bottom: 20px;
+         }
         
 
     </style>
@@ -83,9 +94,17 @@
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
+
+
+            
             <h2 class="CateforyFormHead">Products</h2>
 
-                <br>
+            <form class="searchForm">
+                <input type="search" name="search">
+                <input type="submit" class="btn btn-success" value="Search">
+            </form>
+
+
 
                 <div class="CategoryTableDiv">
                     <table class="CategoryTable">
