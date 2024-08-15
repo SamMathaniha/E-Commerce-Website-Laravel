@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,18 @@ class HomeController extends Controller
 
     public function home()
     {
-        return view('home.index');
+        //variable = model::send all()
+        $product = Product::all();
+
+        return view('home.index',compact('product'));
+    }
+
+    public function login_home()
+    {
+        //variable = model::send all()
+        $product = Product::all();
+
+        return view('home.index',compact('product'));
     }
 
 }
