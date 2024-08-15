@@ -128,4 +128,45 @@ class AdminController extends Controller
         return redirect()->back();
        
     }
+
+    public function update_product($id)
+    {
+        $data = Product::find($id);
+
+        $category = Category::all();
+
+        return view('admin.update_page',compact('data','category'));
+    }
+
+    public function edit_product(Request $request,$id)
+    {
+ 
+        $data = Product::find($id);
+        $data->title = $request-> title;
+        $data->description = $request-> description;
+        $data->price = $request-> price;
+        $data->category = $request-> category;
+        $data->quantity = $request-> quantity;
+
+        //A variable = requestVariable assign to -> InputName
+        $image = $request->image;
+        if($image)  //if the image is available 
+        {
+            //a variable = timeFunction  assignVariable ->method which represents a file that has been uploaded via a form submission.
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+
+            //Assignedvariable->coloumName->move the image to products file [this will be in the public folder], assigned variable
+            $request->image->move('products',$imagename);             //in here Products folder will create automatically 
+            
+            //Assigned variable -> coloumName = AssignedVariable
+            $data->image = $imagename;
+        }
+
+
+
+        $data->save();
+        //message
+        toastr()->timeOut(5000)->closeButton()->success('Category Updated Successfully!!!');
+        return redirect('/view_product');
+    }
 }

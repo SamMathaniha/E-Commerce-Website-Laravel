@@ -42,3 +42,7 @@ Route::post('upload_product', [AdminController::class,'upload_product'])->Middle
 Route::get('view_product', [AdminController::class,'view_product'])->Middleware(['auth','admin']);
 
 Route::get('delete_product/{id}', [AdminController::class,'delete_product'])->Middleware(['auth','admin']);
+
+Route::get('update_product/{id}', [AdminController::class,'update_product'])->Middleware(['auth','admin']);
+
+Route::post('edit_product/{id}', [AdminController::class,'edit_product'])->Middleware(['auth','admin']);
