@@ -216,7 +216,10 @@ class AdminController extends Controller
     }
     public function print_pdf($id)
     {
-       
+        $data = Order::find($id);
+
+        $pdf = Pdf::loadView('admin.invoice',compact('data'));
+        return $pdf->download('invoice.pdf');
     }
 
 
