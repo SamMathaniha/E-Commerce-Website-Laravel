@@ -99,7 +99,7 @@ class HomeController extends Controller
         $data->product_id = $product_id ;  // variable -> ColumnName = product_idVariable 
         $data->save(); 
 
-       
+        toastr()->timeOut(5000)->closeButton()->success('Product added to the cart !!!');
 
         return  redirect()->back();
     }

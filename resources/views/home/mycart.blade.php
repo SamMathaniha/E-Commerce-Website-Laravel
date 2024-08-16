@@ -31,6 +31,19 @@
     tr:hover {
         background-color: #f9f9f9;
     }
+
+    .ProducttotalValue {
+        text-align: center;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .ProducttotalValue span {
+        color: green;
+        text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue; /* Creates a blue outline */
+    }
 </style>
 
 </head>
@@ -55,6 +68,12 @@
                 <th>Image</th>
                 <th>Action</th>
             </tr>
+
+            <?php
+                $value=0;
+            ?>
+
+
             @foreach ($cart as $cart) <!-- using forloop because there will be lots of id's -->
             <tr>
            
@@ -67,8 +86,15 @@
                 <td><a href="{{url('remove_cartProduct', $cart->id)}}"><button class="btn btn-danger">Remove</button></a></td>
             </tr>
 
+            <?php
+                $value = $value + $cart->product->price;
+            ?>
+
             @endforeach
         </table>
+    </div>
+    <div class="ProducttotalValue">
+        <h3>Total value of the Cart is : <span>Rs. {{$value}}</span></h3>
     </div>
 
 
