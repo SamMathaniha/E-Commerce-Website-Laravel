@@ -104,6 +104,26 @@ class HomeController extends Controller
         return  redirect()->back();
     }
 
+    public function mycart()
+    {
+        if (Auth::id())
+        {
+            $user = Auth::user();
+            $userid = $user->id; // from the user getting the user id
+            
+            $count = Cart::where('user_id', $userid)->count(); 
+
+            // to get the details.. we aleardy got some in above 3lines
+           
+            $cart = Cart::where('user_id',$userid)->get(); //get function
+    
+        }
+        else 
+        {
+            $count = '';
+        }
+        return view ('home.mycart',compact('count','cart'));
+    }
     
 
 }
