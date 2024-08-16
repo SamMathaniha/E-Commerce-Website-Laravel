@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Order;
 use Flasher\Toastr\Prime\ToastrInterface;
 
 class AdminController extends Controller
@@ -180,5 +181,32 @@ class AdminController extends Controller
         $data = Product::where('title','LIKE','%'.$search.'%') -> paginate(5);
 
         return view ('admin.view_product',compact('data'));
+    }
+
+
+
+    public function view_orders()
+    {
+        $data = Order::all();
+        return view('admin.order',compact('data'));
+    }
+
+
+    public function on_the_way($id)
+    {
+        //Finding with the id 
+        $data= Order::find($id);
+        $data->status = 'On the way';  //changing the status
+        $data->save();                 //save it
+        return redirect('/view_orders'); // return to this location
+
+    }
+    
+    public function order_delivered($id)
+    {
+        $data= Order::find($id);
+        $data->status = 'Delivered';
+        $data->save();
+        return redirect('/view_orders'); 
     }
 }

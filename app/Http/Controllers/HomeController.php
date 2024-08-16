@@ -161,10 +161,7 @@ class HomeController extends Controller
             $order->user_id = $userid;
             $order->product_id =  $carts-> product_id;
             $order->save();
-
-           
-
-           
+ 
         }
 
         //after order placed the cart listed items should get delete

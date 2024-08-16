@@ -63,3 +63,12 @@ Route::get('mycart', [HomeController::class,'mycart'])->Middleware(['auth','veri
 Route::get('remove_cartProduct/{id}', [HomeController::class,'remove_cartProduct'])->Middleware(['auth','verified']);
 
 Route::post('confirm_order', [HomeController::class,'confirm_order'])->Middleware(['auth','verified']);
+
+Route::get('view_orders', [AdminController::class,'view_orders'])->Middleware(['auth','admin']);
+
+
+Route::get('on_the_way/{id}', [AdminController::class,'on_the_way'])->Middleware(['auth','admin']);
+
+Route::get('order_delivered/{id}', [AdminController::class,'order_delivered'])->Middleware(['auth','admin']);
+
+
