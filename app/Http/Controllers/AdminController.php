@@ -6,6 +6,8 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Order;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 use Flasher\Toastr\Prime\ToastrInterface;
 
 class AdminController extends Controller
