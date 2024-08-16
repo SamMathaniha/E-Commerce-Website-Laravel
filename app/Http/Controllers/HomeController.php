@@ -195,6 +195,21 @@ class HomeController extends Controller
         
     }
 
+    public function myorders()
+    {
+        //for count in header
+        $user = Auth::user()->id;            
+        $count = Cart::where('user_id', $user)->get()->count();
+
+        //get data for table
+        $order = Order::where('user_id',$user)->get();
+
+
+
+            
+        return view ('home.order',compact('count','order'));
+    }
+
     
 
 }
