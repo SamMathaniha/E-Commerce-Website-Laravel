@@ -71,4 +71,6 @@ Route::get('on_the_way/{id}', [AdminController::class,'on_the_way'])->Middleware
 
 Route::get('order_delivered/{id}', [AdminController::class,'order_delivered'])->Middleware(['auth','admin']);
 
+Route::get('print_pdf/{id}', [AdminController::class,'print_pdf'])->Middleware(['auth','admin']);
+
 

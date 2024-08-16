@@ -70,6 +70,19 @@
             color: gold;
          }
 
+         .btnPrint {
+          padding: 5px 12px;
+          background-color: green;
+          border-color: greenyellow;
+            color: #ffffff;
+        }
+
+         .btnPrint:hover {
+            background-color: greenyellow;
+            border-color: green;
+            color: black;
+         }
+
     </style>
   </head>
   <body>
@@ -95,6 +108,7 @@
                              <th>Image</th>
                              <th>Status</th>
                              <th>Action</th>
+                             <th>Print Record</th>
      
                         </tr>
 
@@ -123,7 +137,10 @@
                             </td>
                             <td>
                                 <a  href="{{url('on_the_way',$orders->id)}}"><button class="btndanger">On the Way</button></a>
-                                <a  href="{{url('order_delivered',$orders->id)}}"><button class="btn-primary">Delivered</button></a>
+                                <a  href="{{url('order_delivered',$orders->id)}}"><button class="btn-primary">Delivered</button></a>                                
+                            </td>
+                            <td>
+                                <a  href="{{url('print_pdf',$orders->id)}}"><button class="btnPrint">Print</button></a>
                             </td>
 
                           

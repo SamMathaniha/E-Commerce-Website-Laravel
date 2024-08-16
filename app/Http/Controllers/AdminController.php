@@ -212,4 +212,10 @@ class AdminController extends Controller
         toastr()->timeOut(5000)->closeButton()->success('Order status Updated !!');
         return redirect('/view_orders'); 
     }
+    public function print_pdf($id)
+    {
+       
+    }
+
+
 }
