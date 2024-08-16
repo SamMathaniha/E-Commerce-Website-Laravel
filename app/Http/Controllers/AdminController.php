@@ -198,6 +198,8 @@ class AdminController extends Controller
         $data= Order::find($id);
         $data->status = 'On the way';  //changing the status
         $data->save();                 //save it
+
+        toastr()->timeOut(5000)->closeButton()->success('Order status Updated !!');
         return redirect('/view_orders'); // return to this location
 
     }
@@ -207,6 +209,7 @@ class AdminController extends Controller
         $data= Order::find($id);
         $data->status = 'Delivered';
         $data->save();
+        toastr()->timeOut(5000)->closeButton()->success('Order status Updated !!');
         return redirect('/view_orders'); 
     }
 }

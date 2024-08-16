@@ -109,13 +109,24 @@
                             <td>
                               <img height="80" width="150" src="/products/{{$orders->product->image}}">
                             </td>
-                            <td>{{$orders->status}}</td>
+                            <td>
+                                @if($orders->status == 'in progress')
+                                <span style="color:red">{{$orders->status}}</span>
+
+                                @elseif($orders->status == 'On the way')
+                                <span style="color:blue">{{$orders->status}}</span>
+
+                                @else
+                                <span style="color:green">{{$orders->status}}</span>
+
+                                @endif
+                            </td>
                             <td>
                                 <a  href="{{url('on_the_way',$orders->id)}}"><button class="btndanger">On the Way</button></a>
                                 <a  href="{{url('order_delivered',$orders->id)}}"><button class="btn-primary">Delivered</button></a>
                             </td>
 
-                           
+                          
                         </tr>
                         @endforeach
                     </table>
