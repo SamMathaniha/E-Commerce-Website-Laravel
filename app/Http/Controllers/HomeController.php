@@ -99,7 +99,7 @@ class HomeController extends Controller
         $data->product_id = $product_id ;  // variable -> ColumnName = product_idVariable 
         $data->save(); 
 
-        toastr()->timeOut(5000)->closeButton()->success('Product added to Cart Successfully!!!');
+       
 
         return  redirect()->back();
     }
@@ -124,6 +124,18 @@ class HomeController extends Controller
         }
         return view ('home.mycart',compact('count','cart'));
     }
+
+
+    public function remove_cartProduct($id)
+    {
+        $cart = Cart::find($id);
+        $cart->delete();
+
+        toastr()->timeOut(5000)->closeButton()->success('Product Successfully removed from cart!!!');
+
+        return redirect()->back();
+    }
+
     
 
 }
