@@ -75,7 +75,7 @@
                 <td>${{$order->product->price}}</td>
                 <td>{{$order->status}}</td>
                 <td>
-                    <img class="product-image" src="/products/{{$order->product->image}}" alt="Product Image">
+                <img class="product-image" src="/products/{{$order->product->image}}" alt="Product Image">
                 </td>
             </tr>
             @endforeach

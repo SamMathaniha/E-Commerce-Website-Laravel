@@ -204,8 +204,6 @@ class HomeController extends Controller
         //get data for table
         $order = Order::where('user_id',$user)->get();
 
-
-
             
         return view ('home.order',compact('count','order'));
     }
