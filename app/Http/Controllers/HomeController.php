@@ -22,7 +22,21 @@ class HomeController extends Controller
         //variable = model::send all()
         $product = Product::all();
 
-        return view('home.index',compact('product'));
+        if (Auth::id())
+        {
+            $user = Auth::user();
+            $userid = $user->id; // from the user getting the user id
+            
+            $count = Cart::where('user_id', $userid)->count(); 
+    
+        }
+        else 
+        {
+            $count = '';
+        }
+
+      
+        return view('home.index',compact('product','count'));
     }
 
     public function login_home()
@@ -30,14 +44,42 @@ class HomeController extends Controller
         //variable = model::send all()
         $product = Product::all();
 
-        return view('home.index',compact('product'));
+        if (Auth::id())
+        {
+            $user = Auth::user();
+            $userid = $user->id; // from the user getting the user id
+            
+            $count = Cart::where('user_id', $userid)->count(); 
+    
+        }
+        else 
+        {
+            $count = '';
+        }
+
+        return view('home.index',compact('product','count'));
     }
 
     public function product_details($id)
     {
 
         $data = Product::find($id);
-        return view('home.product_details',compact('data'));
+        //to get the count of the cart
+    
+        if (Auth::id())
+        {
+            $user = Auth::user();
+            $userid = $user->id; // from the user getting the user id
+            
+            $count = Cart::where('user_id', $userid)->count(); 
+    
+        }
+        else 
+        {
+            $count = '';
+        }
+
+        return view('home.product_details',compact('data','count'));
     }
 
     public function add_cart($id)
