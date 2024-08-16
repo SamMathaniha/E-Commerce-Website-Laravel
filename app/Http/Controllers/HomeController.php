@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -134,6 +135,52 @@ class HomeController extends Controller
         toastr()->timeOut(5000)->closeButton()->success('Product Successfully removed from cart!!!');
 
         return redirect()->back();
+    }
+
+    public function confirm_order(Request $request)
+    {
+        //variable = requestVariable -> name(get input field name what user inserted/ in the textbox)
+         $name = $request->name;
+         $address = $request->address;
+         $phone = $request->phone;
+
+         
+        //get the current users id
+         $userid = Auth::user()->id;
+         $cart = Cart::where('user_id', $userid)->get(); // using that get all the details of the user
+
+
+        foreach($cart as $carts)
+        {
+            $order = new Order();
+
+            //Variable->column name = Assigned variable above
+            $order->name= $name;
+            $order->rec_address= $address;
+            $order->phone= $phone;
+            $order->user_id = $userid;
+            $order->product_id =  $carts-> product_id;
+            $order->save();
+
+           
+
+           
+        }
+
+        //after order placed the cart listed items should get delete
+        $cart_remove = Cart::where('user_id',$userid)->get();
+
+        foreach($cart_remove as $remove)
+        {
+            $data = Cart::find($remove->id);
+            $data->delete();
+        }
+
+        toastr()->timeOut(5000)->closeButton()->success('Order Placed Successfully');
+
+
+        return redirect()->back();
+        
     }
 
     
